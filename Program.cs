@@ -116,7 +116,7 @@ namespace MovieRentalManagementSystem
 
                     default:
                         ClearConsole();
-                        Console.WriteLine("Enter the Correct Number");
+                        Console.WriteLine("Enter the Correct Number Correctly");
                         break;
                 }
 
