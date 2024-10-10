@@ -23,8 +23,8 @@ namespace MovieRentalManagementSystem
                 Console.WriteLine("2. View All Movies");
                 Console.WriteLine("3. Update a Movie");
                 Console.WriteLine("4. Delete a Movie");
-                Console.WriteLine("5. Exit");
-                Console.WriteLine("6. Get By Id");
+                Console.WriteLine("5. Get By Id");
+                Console.WriteLine("6. Exit");
 
 
                 Console.WriteLine("Choose an option:");
@@ -43,6 +43,7 @@ namespace MovieRentalManagementSystem
 
                         Console.Write("Enter The Movie Title: ");
                         string title = Console.ReadLine();
+                        string capitalize = char.ToUpper(title[0]) + title.Substring(1);
 
                         Console.Write("Enter The Movie Director: ");
                         string director = Console.ReadLine();
@@ -51,7 +52,7 @@ namespace MovieRentalManagementSystem
                         decimal rentalPrice = Convert.ToDecimal(Console.ReadLine());
 
                         decimal validateMovieRentalPrice = movieManager.ValidateMovieRentalPrice(rentalPrice);
-                        movieManager.CreateMovie(new Movie(title, director, validateMovieRentalPrice));
+                        movieManager.CreateMovie(new Movie(capitalize, director, validateMovieRentalPrice));
 
                         break;
 
@@ -96,12 +97,6 @@ namespace MovieRentalManagementSystem
 
                     case "5":
 
-                        Environment.Exit(0);
-
-                        break;
-
-                    case "6":
-
                         ClearConsole();
                         Console.WriteLine("getBy id Movies");
 
@@ -110,6 +105,14 @@ namespace MovieRentalManagementSystem
                         movieManager.GetById(getid);
 
                         break;
+
+                    case "6":
+
+                        Environment.Exit(0);
+
+                        break;
+
+                    
 
                     default:
                         ClearConsole();
