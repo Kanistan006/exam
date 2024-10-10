@@ -12,15 +12,19 @@ namespace MovieRentalManagementSystem
         static void Main(string[] args)
         {
             MovieManager movieManager = new MovieManager();
+            movieManager.CreateTable();
+
 
             while (true)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Movie Rental Management System:");
                 Console.WriteLine("1. Add a Movie");
                 Console.WriteLine("2. View All Movies");
                 Console.WriteLine("3. Update a Movie");
                 Console.WriteLine("4. Delete a Movie");
                 Console.WriteLine("5. Exit");
+                Console.WriteLine("6. Get By Id");
 
 
                 Console.WriteLine("Choose an option:");
@@ -31,8 +35,11 @@ namespace MovieRentalManagementSystem
                 switch (option)
                 {
                     case "1":
-                        Console.Write("Enter The Movie id: ");
-                        int id = Convert.ToInt32(Console.ReadLine());
+                        ClearConsole();
+
+                        Console.WriteLine("Add Movies");
+                        //Console.Write("Enter The Movie id: ");
+                        //int id = Convert.ToInt32(Console.ReadLine());
 
                         Console.Write("Enter The Movie Title: ");
                         string title = Console.ReadLine();
@@ -44,17 +51,20 @@ namespace MovieRentalManagementSystem
                         decimal rentalPrice = Convert.ToDecimal(Console.ReadLine());
 
                         decimal validateMovieRentalPrice = movieManager.ValidateMovieRentalPrice(rentalPrice);
-                        movieManager.CreateMovie(new Movie(id, title, director, validateMovieRentalPrice));
+                        movieManager.CreateMovie(new Movie(title, director, validateMovieRentalPrice));
 
                         break;
 
                     case "2":
-
+                        ClearConsole();
+                        Console.WriteLine("View Movies");
                         movieManager.ReadMovies();
 
                         break;
 
                     case "3":
+                        ClearConsole();
+                        Console.WriteLine("Update Movies");
 
                         Console.Write("Enter The Movie id: ");
                         int movieid = Convert.ToInt32(Console.ReadLine());
@@ -74,6 +84,9 @@ namespace MovieRentalManagementSystem
                         break;
 
                     case "4":
+                        ClearConsole();
+                        Console.WriteLine("Delete Movies");
+
                         Console.Write("Enter The Movie id: ");
                         int deleteid = Convert.ToInt32(Console.ReadLine());
 
@@ -87,13 +100,31 @@ namespace MovieRentalManagementSystem
 
                         break;
 
+                    case "6":
+
+                        ClearConsole();
+                        Console.WriteLine("getBy id Movies");
+
+                        Console.Write("Enter The Movie id: ");
+                        int getid = Convert.ToInt32(Console.ReadLine());
+                        movieManager.GetById(getid);
+
+                        break;
+
                     default:
+                        ClearConsole();
                         Console.WriteLine("Enter the Correct Number");
                         break;
                 }
 
 
 
+            }
+
+
+            void ClearConsole()
+            {
+                Console.Clear();
             }
         }
 

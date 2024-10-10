@@ -22,6 +22,18 @@ namespace MovieRentalManagementSystem
             RentalPrice = rentalPrice;
         }
 
+        public Movie(string title, string director, decimal rentalPrice) 
+        {
+            Title = title;  
+            Director = director;
+            RentalPrice = rentalPrice;
+        
+        }
+        public Movie()
+        {
+            
+        }
+
         public override string ToString()
         {
             return $"ID: {MovieId}, Title: {Title}, Director: {Director}, RentalPrice: {RentalPrice}";
