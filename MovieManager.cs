@@ -50,5 +50,27 @@ namespace MovieRentalManagementSystem
             Movies.RemoveAll(x => x. MovieId == movieId);
             Console.WriteLine("movie Deleted successfully");
         }
+
+
+        public decimal ValidateMovieRentalPrice(decimal price)
+        {
+            if (price > 0)
+            {
+                return price;
+            }
+            else
+            {
+                while (price <= 0)
+                {
+                    Console.WriteLine("Enter The Price for Positive Value");
+                    Console.Write("Reenter The Price: ");
+                     price = Convert.ToDecimal(Console.ReadLine());
+
+                }
+
+                return price;
+
+            }
+        }
     }
 }
